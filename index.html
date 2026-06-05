@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fury Co. Athletics | Relentless Training. Proven Results.</title>
+  <meta name="description" content="Elite athletics coaching, custom gyms, and a community built on hard work. Work Hard. Never Give Up. Leave No One Behind.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================================
+       RESET & VARIABLES
+    ============================================================ */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --black:    #080808;
+      --black-2:  #0d0d0d;
+      --black-3:  #141414;
+      --red:      #e5151a;
+      --red-dark: #b91c1c;
+      --gold:     #f59e0b;
+      --white:    #ffffff;
+      --gray-lt:  #f5f5f5;
+      --gray:     #9ca3af;
+      --gray-dk:  #374151;
+      --pad-x:    clamp(1.25rem, 5vw, 5rem);
+      --max-w:    1200px;
+    }
+
+    html  { scroll-behavior: smooth; font-size: 16px; }
+    body  { font-family: 'Inter', sans-serif; background: var(--black); color: var(--white); overflow-x: hidden; line-height: 1.6; }
+    h1, h2, h3, h4, h5 { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.04em; line-height: 1; }
+    img   { display: block; max-width: 100%; }
+    a     { text-decoration: none; color: inherit; }
+
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--pad-x); }
+    .section-pad { padding: 100px 0; }
+
+    /* ---- shared section header ---- */
+    .s-label {
+      display: inline-block;
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.3em;
+      text-transform: uppercase; color: var(--red);
+      margin-bottom: 0.9rem;
+    }
+    .s-title {
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      color: var(--white); text-transform: uppercase;
+    }
+    .s-title em { color: var(--red); font-style: normal; }
+    .section-head { text-align: center; margin-bottom: 4rem; }
+
+    /* ---- buttons ---- */
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-family: 'Bebas Neue', sans-serif; font-size: 1.15rem;
+      letter-spacing: 0.1em; padding: 0.9rem 2.2rem;
+      border: none; cursor: pointer; transition: transform 0.15s, background 0.2s, color 0.2s, border-color 0.2s;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-red   { background: var(--red); color: var(--white); }
+    .btn-red:hover { background: var(--red-dark); }
+    .btn-outline {
+      background: transparent; color: var(--white);
+      border: 2px solid rgba(255,255,255,0.35);
+    }
+    .btn-outline:hover { border-color: var(--white); }
+    .btn-black { background: var(--black); color: var(--white); }
+    .btn-black:hover { background: #1a1a1a; }
+
+    /* ---- fade-in scroll animation ---- */
+    .reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+
+    /* ============================================================
+       NAVBAR
+    ============================================================ */
+    #nav {
+      position: fixed; top: 0; inset-inline: 0; z-index: 900;
+      height: 68px;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 var(--pad-x);
+      background: rgba(8,8,8,0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(229,21,26,0.18);
+      transition: background 0.35s;
+    }
+    #nav.scrolled { background: rgba(8,8,8,0.98); }
+
+    .nav-logo { font-size: 2rem; letter-spacing: 0.1em; }
+    .nav-logo span { color: var(--red); }
+
+    .nav-links { display: flex; gap: 2.2rem; list-style: none; }
+    .nav-links a {
+      font-size: 0.8rem; font-weight: 600; letter-spacing: 0.12em;
+      text-transform: uppercase; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--red); }
+
+    .nav-right { display: flex; align-items: center; gap: 1.2rem; }
+
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .hamburger span { width: 26px; height: 2px; background: var(--white); border-radius: 2px; transition: 0.3s; }
+
+    /* mobile drawer */
+    #mobile-nav {
+      position: fixed; top: 68px; inset-inline: 0; z-index: 899;
+      background: var(--black-2); border-bottom: 2px solid var(--red);
+      padding: 2rem var(--pad-x) 2.5rem;
+      transform: translateY(-110%); transition: transform 0.35s ease;
+    }
+    #mobile-nav.open { transform: none; }
+    #mobile-nav ul { list-style: none; display: flex; flex-direction: column; gap: 1.4rem; }
+    #mobile-nav a { font-size: 1.8rem; font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.08em; color: var(--white); transition: color 0.2s; }
+    #mobile-nav a:hover { color: var(--red); }
+    #mobile-nav .m-book { margin-top: 1.2rem; }
+
+    /* ============================================================
+       HERO
+    ============================================================ */
+    #hero {
+      position: relative; min-height: 100svh;
+      display: flex; align-items: center;
+      overflow: hidden; isolation: isolate;
+    }
+
+    .hero-bg {
+      position: absolute; inset: 0; z-index: -2;
+      background: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1920&q=85') center / cover no-repeat;
+    }
+    /* dual-layer overlay: dark left + red accent right */
+    .hero-bg::after {
+      content: ''; position: absolute; inset: 0;
+      background:
+        linear-gradient(to right, rgba(8,8,8,0.97) 30%, rgba(8,8,8,0.55) 75%, rgba(229,21,26,0.18) 100%),
+        linear-gradient(to top,   rgba(8,8,8,0.7)  0%,  transparent 60%);
+    }
+
+    /* animated grid lines */
+    .hero-grid {
+      position: absolute; inset: 0; z-index: -1; opacity: 0.06;
+      background-image:
+        linear-gradient(var(--red) 1px, transparent 1px),
+        linear-gradient(90deg, var(--red) 1px, transparent 1px);
+      background-size: 80px 80px;
+      animation: gridShift 20s linear infinite;
+    }
+    @keyframes gridShift { to { background-position: 80px 80px; } }
+
+    .hero-content {
+      position: relative; padding: 68px var(--pad-x) 0;
+      max-width: calc(var(--max-w) * 0.82);
+    }
+
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.28em;
+      text-transform: uppercase; color: var(--red);
+      border: 1px solid rgba(229,21,26,0.45); padding: 0.4rem 1rem;
+      margin-bottom: 1.6rem;
+    }
+    .hero-eyebrow::before {
+      content: ''; width: 8px; height: 8px; background: var(--red); border-radius: 50%;
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+    @keyframes pulse { 0%,100% { opacity:1; transform:scale(1); } 50% { opacity:0.4; transform:scale(1.4); } }
+
+    .hero-title {
+      font-size: clamp(3.8rem, 10vw, 9.5rem);
+      text-transform: uppercase; color: var(--white); margin-bottom: 1.4rem;
+    }
+    .hero-title em { color: var(--red); font-style: normal; display: block; }
+
+    .hero-sub {
+      font-size: clamp(0.95rem, 1.4vw, 1.1rem); font-weight: 300;
+      color: rgba(255,255,255,0.72); max-width: 520px; line-height: 1.75;
+      margin-bottom: 2.4rem;
+    }
+
+    .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    /* stats bar */
+    .hero-stats {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: rgba(8,8,8,0.82); backdrop-filter: blur(8px);
+      border-top: 1px solid rgba(229,21,26,0.2);
+      display: flex; justify-content: center; flex-wrap: wrap;
+    }
+    .hero-stat {
+      padding: 1.4rem 3.5rem; border-right: 1px solid rgba(255,255,255,0.07);
+      text-align: center; flex: 1 1 160px;
+    }
+    .hero-stat:last-child { border-right: none; }
+    .stat-num {
+      font-family: 'Bebas Neue', sans-serif; font-size: 2.6rem; color: var(--white); line-height: 1;
+    }
+    .stat-num span { color: var(--red); }
+    .stat-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--gray); margin-top: 0.3rem; }
+
+    /* scroll indicator */
+    .scroll-hint {
+      position: absolute; right: var(--pad-x); bottom: 80px;
+      display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+      font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gray);
+      animation: floatY 2.5s ease-in-out infinite;
+    }
+    .scroll-hint::after { content: ''; width: 1px; height: 46px; background: var(--red); }
+    @keyframes floatY { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-8px); } }
+
+    /* ============================================================
+       BOOKING FORM
+    ============================================================ */
+    #booking { background: var(--red); padding: 80px 0; }
+
+    .booking-grid {
+      display: grid; grid-template-columns: 1fr 1.55fr; gap: 4rem; align-items: center;
+    }
+
+    .booking-lede h2 { font-size: clamp(2.4rem, 4.5vw, 4rem); color: var(--white); text-transform: uppercase; margin-bottom: 1rem; }
+    .booking-lede p  { color: rgba(255,255,255,0.82); font-size: 0.97rem; line-height: 1.75; }
+    .booking-badge {
+      display: inline-block; margin-top: 2rem;
+      background: rgba(0,0,0,0.25); color: rgba(255,255,255,0.9);
+      font-size: 0.78rem; font-weight: 700; letter-spacing: 0.15em;
+      text-transform: uppercase; padding: 0.5rem 1rem; border: 1px solid rgba(255,255,255,0.3);
+    }
+
+    .booking-form { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .booking-form .span-2 { grid-column: 1 / -1; }
+
+    .fld { display: flex; flex-direction: column; gap: 0.35rem; }
+    .fld label {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em;
+      text-transform: uppercase; color: rgba(255,255,255,0.68);
+    }
+    .fld input, .fld select, .fld textarea {
+      background: rgba(0,0,0,0.22); border: 1px solid rgba(255,255,255,0.28);
+      color: var(--white); padding: 0.82rem 1rem;
+      font-family: 'Inter', sans-serif; font-size: 0.95rem;
+      outline: none; transition: border-color 0.2s; width: 100%;
+      -webkit-appearance: none;
+    }
+    .fld input::placeholder, .fld textarea::placeholder { color: rgba(255,255,255,0.38); }
+    .fld select option { background: #1a1a1a; }
+    .fld input:focus, .fld select:focus, .fld textarea:focus { border-color: rgba(255,255,255,0.9); }
+    .fld textarea { resize: vertical; min-height: 90px; }
+
+    /* ============================================================
+       STORIES
+    ============================================================ */
+    #stories { background: var(--black-2); padding: 100px 0; }
+
+    .stories-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px;
+    }
+
+    .story-card {
+      position: relative; overflow: hidden; aspect-ratio: 2 / 3; cursor: pointer;
+    }
+    .story-card img {
+      width: 100%; height: 100%; object-fit: cover; object-position: top;
+      transition: transform 0.6s, filter 0.4s;
+      filter: grayscale(45%);
+    }
+    .story-card:hover img { transform: scale(1.06); filter: grayscale(0%); }
+
+    .story-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(8,8,8,0.97) 32%, rgba(8,8,8,0.2) 65%, transparent 100%);
+      padding: 2rem; display: flex; flex-direction: column; justify-content: flex-end;
+    }
+    .story-sport { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--red); margin-bottom: 0.45rem; }
+    .story-name  { font-size: 2rem; color: var(--white); margin-bottom: 0.5rem; }
+    .story-blurb { font-size: 0.83rem; color: rgba(255,255,255,0.7); line-height: 1.55; }
+    .story-result {
+      margin-top: 1.1rem; padding-top: 1rem;
+      border-top: 1px solid rgba(229,21,26,0.35);
+      font-family: 'Bebas Neue', sans-serif; font-size: 1.25rem; color: var(--red); letter-spacing: 0.05em;
+    }
+
+    /* ============================================================
+       PROGRAMS
+    ============================================================ */
+    #programs { background: var(--black); padding: 100px 0; }
+
+    .programs-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 3px;
+    }
+
+    .prog-card {
+      position: relative; min-height: 420px; overflow: hidden; cursor: pointer;
+    }
+    .prog-card img {
+      position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.65s, filter 0.4s;
+      filter: grayscale(30%);
+    }
+    .prog-card:hover img { transform: scale(1.06); filter: grayscale(0%); }
+
+    .prog-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(145deg, rgba(8,8,8,0.88) 0%, rgba(229,21,26,0.12) 100%);
+      padding: 2.5rem; display: flex; flex-direction: column; justify-content: flex-end;
+      transition: background 0.35s;
+    }
+    .prog-card:hover .prog-overlay { background: linear-gradient(145deg, rgba(8,8,8,0.78) 0%, rgba(229,21,26,0.22) 100%); }
+
+    .prog-num {
+      position: absolute; top: 1.5rem; right: 1.8rem;
+      font-family: 'Bebas Neue', sans-serif; font-size: 6rem;
+      color: rgba(255,255,255,0.07); line-height: 1;
+      transition: color 0.3s;
+    }
+    .prog-card:hover .prog-num { color: rgba(229,21,26,0.15); }
+
+    .prog-tag  { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--red); margin-bottom: 0.6rem; }
+    .prog-name { font-size: clamp(2rem, 3vw, 2.8rem); color: var(--white); margin-bottom: 0.8rem; }
+    .prog-desc { font-size: 0.88rem; color: rgba(255,255,255,0.68); line-height: 1.65; max-width: 440px; margin-bottom: 1.6rem; }
+
+    .prog-arrow {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.8rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--red); transition: gap 0.25s;
+    }
+    .prog-arrow::after { content: '→'; transition: transform 0.25s; }
+    .prog-card:hover .prog-arrow { gap: 0.9rem; }
+    .prog-card:hover .prog-arrow::after { transform: translateX(4px); }
+
+    /* ============================================================
+       REVIEWS
+    ============================================================ */
+    #reviews { background: var(--black-2); padding: 100px 0; }
+
+    .reviews-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem;
+    }
+
+    .review-card {
+      background: var(--black-3); border: 1px solid rgba(255,255,255,0.06);
+      padding: 2rem; transition: border-color 0.3s, transform 0.3s;
+    }
+    .review-card:hover { border-color: var(--red); transform: translateY(-5px); }
+
+    .r-stars { color: var(--gold); font-size: 0.9rem; letter-spacing: 0.15em; margin-bottom: 1.1rem; }
+    .r-quote { font-size: 0.92rem; font-style: italic; line-height: 1.72; color: rgba(255,255,255,0.78); margin-bottom: 1.5rem; }
+    .r-quote::before { content: '\201C'; }
+    .r-quote::after  { content: '\201D'; }
+
+    .r-author { display: flex; align-items: center; gap: 0.9rem; }
+    .r-avatar {
+      width: 46px; height: 46px; border-radius: 50%; object-fit: cover; flex-shrink: 0;
+      border: 2px solid var(--red);
+    }
+    .r-name { font-weight: 700; font-size: 0.92rem; }
+    .r-meta { font-size: 0.77rem; color: var(--gray); margin-top: 0.12rem; }
+
+    /* ============================================================
+       STORE
+    ============================================================ */
+    #store { background: var(--black); padding: 100px 0; }
+
+    .store-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+
+    .prod-card { cursor: pointer; }
+
+    .prod-img {
+      position: relative; overflow: hidden; aspect-ratio: 3/4; background: var(--black-3);
+      margin-bottom: 1rem;
+    }
+    .prod-img img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.55s;
+    }
+    .prod-card:hover .prod-img img { transform: scale(1.06); }
+
+    .prod-badge {
+      position: absolute; top: 0.8rem; left: 0.8rem; z-index: 1;
+      background: var(--red); color: var(--white);
+      font-size: 0.67rem; font-weight: 800; letter-spacing: 0.1em;
+      padding: 0.22rem 0.55rem; text-transform: uppercase;
+    }
+
+    .prod-cta {
+      position: absolute; bottom: -48px; inset-inline: 0;
+      background: var(--red); color: var(--white);
+      padding: 0.72rem; text-align: center;
+      font-family: 'Bebas Neue', sans-serif; font-size: 1.05rem; letter-spacing: 0.1em;
+      transition: bottom 0.32s ease;
+    }
+    .prod-card:hover .prod-cta { bottom: 0; }
+
+    .prod-cat  { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gray); margin-bottom: 0.3rem; }
+    .prod-name { font-size: 0.95rem; font-weight: 700; color: var(--white); margin-bottom: 0.45rem; }
+    .prod-price { font-family: 'Bebas Neue', sans-serif; font-size: 1.25rem; color: var(--red); }
+
+    .store-foot { text-align: center; margin-top: 3.5rem; }
+
+    /* ============================================================
+       GALLERY
+    ============================================================ */
+    #gallery { background: #060606; padding: 100px 0; }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-auto-rows: 220px;
+      gap: 4px;
+    }
+
+    .g-item { overflow: hidden; cursor: pointer; }
+    .g-item img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.55s, filter 0.35s;
+      filter: grayscale(35%);
+    }
+    .g-item:hover img { transform: scale(1.07); filter: grayscale(0%); }
+
+    /* Mosaic layout */
+    .g-item:nth-child(1) { grid-column: span 5; grid-row: span 2; }
+    .g-item:nth-child(2) { grid-column: span 4; grid-row: span 1; }
+    .g-item:nth-child(3) { grid-column: span 3; grid-row: span 1; }
+    .g-item:nth-child(4) { grid-column: span 3; grid-row: span 1; }
+    .g-item:nth-child(5) { grid-column: span 4; grid-row: span 1; }
+    .g-item:nth-child(6) { grid-column: span 4; grid-row: span 1; }
+    .g-item:nth-child(7) { grid-column: span 4; grid-row: span 1; }
+    .g-item:nth-child(8) { grid-column: span 4; grid-row: span 1; }
+
+    /* ============================================================
+       CONTACT + MAP
+    ============================================================ */
+    #contact { background: var(--black-2); padding: 100px 0; }
+
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4.5rem; align-items: start; }
+
+    .contact-info h2 { font-size: clamp(2.4rem, 4vw, 3.6rem); text-transform: uppercase; margin-bottom: 1.2rem; }
+    .contact-info h2 em { color: var(--red); font-style: normal; }
+    .contact-info > p { color: rgba(255,255,255,0.68); line-height: 1.75; font-size: 0.95rem; margin-bottom: 2rem; }
+
+    .c-items { display: flex; flex-direction: column; gap: 1.2rem; margin-bottom: 2.5rem; }
+    .c-item  { display: flex; align-items: flex-start; gap: 1rem; }
+    .c-icon  {
+      width: 42px; height: 42px; flex-shrink: 0;
+      background: var(--red); display: flex; align-items: center; justify-content: center; font-size: 1rem;
+    }
+    .c-text strong { display: block; font-size: 0.9rem; color: var(--white); margin-bottom: 0.15rem; }
+    .c-text span   { font-size: 0.86rem; color: rgba(255,255,255,0.62); line-height: 1.5; }
+
+    .map-wrap {
+      width: 100%; height: 280px; overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.07);
+    }
+    .map-wrap iframe {
+      width: 100%; height: 100%; border: none;
+      filter: grayscale(85%) invert(8%) contrast(1.1);
+    }
+
+    .contact-form-wrap .s-label { margin-bottom: 1.5rem; display: block; }
+
+    .cform { display: flex; flex-direction: column; gap: 1rem; }
+    .cform-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+    .cform input, .cform textarea {
+      background: var(--black-3); border: 1px solid rgba(255,255,255,0.1);
+      color: var(--white); padding: 0.88rem 1rem;
+      font-family: 'Inter', sans-serif; font-size: 0.93rem; width: 100%;
+      outline: none; transition: border-color 0.2s;
+    }
+    .cform input::placeholder, .cform textarea::placeholder { color: var(--gray); }
+    .cform input:focus, .cform textarea:focus { border-color: var(--red); }
+    .cform textarea { min-height: 120px; resize: vertical; }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    footer {
+      background: var(--black);
+      border-top: 1px solid rgba(229,21,26,0.16);
+      padding: 3rem var(--pad-x);
+    }
+    .footer-inner {
+      max-width: var(--max-w); margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem;
+    }
+
+    .f-logo { font-size: 2rem; letter-spacing: 0.1em; }
+    .f-logo span { color: var(--red); }
+    .f-tagline { font-size: 0.72rem; color: var(--gray); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 0.3rem; }
+
+    .f-links { display: flex; gap: 1.5rem; list-style: none; flex-wrap: wrap; }
+    .f-links a { font-size: 0.78rem; color: var(--gray); transition: color 0.2s; }
+    .f-links a:hover { color: var(--red); }
+
+    .f-social { display: flex; gap: 0.75rem; }
+    .f-social a {
+      width: 36px; height: 36px; border: 1px solid rgba(255,255,255,0.12);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.85rem; color: var(--gray); transition: border-color 0.2s, color 0.2s;
+    }
+    .f-social a:hover { border-color: var(--red); color: var(--red); }
+
+    .f-copy { font-size: 0.75rem; color: var(--gray); }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media (max-width: 1024px) {
+      .store-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 900px) {
+      .nav-links, .nav-right .btn { display: none; }
+      .hamburger { display: flex; }
+
+      .booking-grid   { grid-template-columns: 1fr; }
+      .stories-grid   { grid-template-columns: 1fr; }
+      .programs-grid  { grid-template-columns: 1fr; }
+      .reviews-grid   { grid-template-columns: 1fr; }
+      .contact-grid   { grid-template-columns: 1fr; }
+      .footer-inner   { flex-direction: column; text-align: center; }
+      .f-links, .f-social { justify-content: center; }
+
+      .story-card { aspect-ratio: 16/9; }
+
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 200px; }
+      .g-item { grid-column: span 1 !important; grid-row: span 1 !important; }
+      .g-item:nth-child(1) { grid-column: span 2 !important; grid-row: span 2 !important; }
+
+      .scroll-hint { display: none; }
+      .hero-stats { position: static; }
+      #hero { flex-direction: column; padding-bottom: 0; }
+      .hero-content { padding-bottom: 3rem; }
+    }
+
+    @media (max-width: 600px) {
+      .store-grid  { grid-template-columns: 1fr; }
+      .booking-form { grid-template-columns: 1fr; }
+      .booking-form .span-2 { grid-column: 1; }
+      .cform-row { grid-template-columns: 1fr; }
+      .hero-stat { padding: 1rem 1.5rem; flex: 1 1 120px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ============================================================
+     NAVBAR
+============================================================ -->
+<nav id="nav">
+  <a href="#hero" class="nav-logo">FURY<span>.</span>CO</a>
+
+  <ul class="nav-links">
+    <li><a href="#programs">Programs</a></li>
+    <li><a href="#stories">Stories</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#store">Store</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+
+  <div class="nav-right">
+    <a href="#booking" class="btn btn-red" style="font-size:1rem; padding:0.6rem 1.5rem;">Book Free Session</a>
+    <div class="hamburger" id="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- mobile drawer -->
+<div id="mobile-nav" role="navigation">
+  <ul>
+    <li><a href="#programs" class="m-link">Programs</a></li>
+    <li><a href="#stories"  class="m-link">Stories</a></li>
+    <li><a href="#reviews"  class="m-link">Reviews</a></li>
+    <li><a href="#store"    class="m-link">Store</a></li>
+    <li><a href="#gallery"  class="m-link">Gallery</a></li>
+    <li><a href="#contact"  class="m-link">Contact</a></li>
+    <li class="m-book"><a href="#booking" class="btn btn-red m-link" style="display:inline-block;">Book Free Session</a></li>
+  </ul>
+</div>
+
+
+<!-- ============================================================
+     HERO
+============================================================ -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">Fury Co. Athletics — Est. 2012</div>
+    <h1 class="hero-title">
+      RELENTLESS<br>
+      <em>TRAINING.</em>
+      PROVEN<br>RESULTS.
+    </h1>
+    <p class="hero-sub">
+      Elite coaching, world-class facilities, and a community that never gives up.
+      Work Hard. Never Give Up. Leave No One Behind.
+    </p>
+    <div class="hero-ctas">
+      <a href="#booking"  class="btn btn-red">Start Training</a>
+      <a href="#programs" class="btn btn-outline">Explore Programs</a>
+    </div>
+  </div>
+
+  <div class="scroll-hint">Scroll</div>
+
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="stat-num" data-target="500" data-suffix="+">500+</div>
+      <div class="stat-label">Athletes Trained</div>
+    </div>
+    <div class="hero-stat">
+      <div class="stat-num" data-target="12" data-suffix="+">12+</div>
+      <div class="stat-label">Years of Excellence</div>
+    </div>
+    <div class="hero-stat">
+      <div class="stat-num" data-target="98" data-suffix="%">98%</div>
+      <div class="stat-label">Client Success Rate</div>
+    </div>
+    <div class="hero-stat">
+      <div class="stat-num" data-target="4" data-suffix=" States">4 States</div>
+      <div class="stat-label">Gym Installations</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     BOOKING FORM
+============================================================ -->
+<section id="booking">
+  <div class="container">
+    <div class="booking-grid">
+
+      <div class="booking-lede reveal">
+        <h2>Book Your<br>Free Evaluation<br>Session</h2>
+        <p>
+          Every athlete starts with a comprehensive evaluation of strength, speed,
+          mobility, and endurance. We identify your strengths, weaknesses,
+          and sport-specific demands — then build the program that gets results.
+        </p>
+        <div class="booking-badge">★ No commitment required — 100% free</div>
+      </div>
+
+      <form class="booking-form reveal reveal-delay-1" id="booking-form" novalidate>
+        <div class="fld">
+          <label for="b-fname">First Name *</label>
+          <input type="text" id="b-fname" name="fname" placeholder="John" required>
+        </div>
+        <div class="fld">
+          <label for="b-lname">Last Name *</label>
+          <input type="text" id="b-lname" name="lname" placeholder="Doe" required>
+        </div>
+        <div class="fld">
+          <label for="b-email">Email *</label>
+          <input type="email" id="b-email" name="email" placeholder="john@email.com" required>
+        </div>
+        <div class="fld">
+          <label for="b-phone">Phone</label>
+          <input type="tel" id="b-phone" name="phone" placeholder="(555) 000-0000">
+        </div>
+        <div class="fld span-2">
+          <label for="b-program">Program Interest</label>
+          <select id="b-program" name="program">
+            <option value="">— Select a Program —</option>
+            <option>Athlete Training</option>
+            <option>In-Person Training</option>
+            <option>Online Training</option>
+            <option>Custom Gym Setup</option>
+            <option>Group / Team Training</option>
+          </select>
+        </div>
+        <div class="fld span-2">
+          <label for="b-goal">Tell Us About Your Goals</label>
+          <textarea id="b-goal" name="goal" placeholder="I want to improve my speed, strength, and overall athletic performance…"></textarea>
+        </div>
+        <div class="span-2">
+          <button type="submit" class="btn btn-black" style="width:100%; font-size:1.25rem;">
+            BOOK MY FREE SESSION &nbsp;→
+          </button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     ATHLETE STORIES
+============================================================ -->
+<section id="stories" class="section-pad">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="s-label">Real Athletes. Real Results.</div>
+      <h2 class="s-title">Athlete <em>Stories</em></h2>
+    </div>
+  </div>
+
+  <div class="stories-grid reveal reveal-delay-1">
+
+    <div class="story-card">
+      <img src="https://images.unsplash.com/photo-1517963879433-6ad2b056d712?w=600&q=80" alt="Marcus T. — College Football" loading="lazy">
+      <div class="story-overlay">
+        <div class="story-sport">Athlete Training · Football</div>
+        <div class="story-name">MARCUS T.</div>
+        <div class="story-blurb">From high-school walk-on to Division I recruit in 14 months of elite programming with Fury Co.</div>
+        <div class="story-result">+42 lbs Bench Press &nbsp;|&nbsp; −2.1 s 40-Yd Dash</div>
+      </div>
+    </div>
+
+    <div class="story-card">
+      <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600&q=80" alt="Sarah K. — Triathlete" loading="lazy">
+      <div class="story-overlay">
+        <div class="story-sport">Online Training · Triathlon</div>
+        <div class="story-name">SARAH K.</div>
+        <div class="story-blurb">Dropped 35 lbs and crossed the finish line of her first triathlon — all while training remotely with Fury Co.</div>
+        <div class="story-result">−35 lbs &nbsp;|&nbsp; First Triathlon Completed</div>
+      </div>
+    </div>
+
+    <div class="story-card">
+      <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=600&q=80" alt="Derek M. — ACL Recovery" loading="lazy">
+      <div class="story-overlay">
+        <div class="story-sport">In-Person Training · Recovery</div>
+        <div class="story-name">DEREK M.</div>
+        <div class="story-blurb">Torn ACL. Told it'd take 12 months. Fury Co.'s performance-rehab program had him back in 9.</div>
+        <div class="story-result">ACL Tear → Back on Field in 9 Months</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     PROGRAMS
+============================================================ -->
+<section id="programs" class="section-pad">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="s-label">Built to Perform</div>
+      <h2 class="s-title">Our <em>Programs</em></h2>
+    </div>
+  </div>
+
+  <div class="programs-grid reveal reveal-delay-1">
+
+    <div class="prog-card">
+      <img src="https://images.unsplash.com/photo-1574680096145-d05b474e2155?w=900&q=80" alt="Athlete Training" loading="lazy">
+      <div class="prog-overlay">
+        <div class="prog-num">01</div>
+        <div class="prog-tag">Elite Performance</div>
+        <h3 class="prog-name">Athlete Training</h3>
+        <p class="prog-desc">Comprehensive strength, speed, mobility, and endurance evaluations. Sport-specific periodization designed around your competition calendar.</p>
+        <a href="#booking" class="prog-arrow">Book a Session</a>
+      </div>
+    </div>
+
+    <div class="prog-card">
+      <img src="https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?w=900&q=80" alt="In-Person Training" loading="lazy">
+      <div class="prog-overlay">
+        <div class="prog-num">02</div>
+        <div class="prog-tag">1-on-1 Coaching</div>
+        <h3 class="prog-name">In-Person Training</h3>
+        <p class="prog-desc">Side-by-side coaching in a world-class facility. Personalized programming, real-time feedback, and the accountability to go further.</p>
+        <a href="#booking" class="prog-arrow">Get Started</a>
+      </div>
+    </div>
+
+    <div class="prog-card">
+      <img src="https://images.unsplash.com/photo-1485395578879-6c658fb06165?w=900&q=80" alt="Online Training" loading="lazy">
+      <div class="prog-overlay">
+        <div class="prog-num">03</div>
+        <div class="prog-tag">Train Anywhere</div>
+        <h3 class="prog-name">Online Training</h3>
+        <p class="prog-desc">World-class coaching delivered to your device. Custom programs, video feedback, and daily check-ins — train on your schedule, your terms.</p>
+        <a href="#booking" class="prog-arrow">Start Online</a>
+      </div>
+    </div>
+
+    <div class="prog-card">
+      <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=900&q=80" alt="Custom Gyms" loading="lazy">
+      <div class="prog-overlay">
+        <div class="prog-num">04</div>
+        <div class="prog-tag">Build Your Space</div>
+        <h3 class="prog-name">Custom Gyms</h3>
+        <p class="prog-desc">From container gyms to home and commercial setups — we design, build, and install your dream training facility from the ground up.</p>
+        <a href="#contact" class="prog-arrow">Get a Quote</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     REVIEWS
+============================================================ -->
+<section id="reviews" class="section-pad">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="s-label">The Community Speaks</div>
+      <h2 class="s-title">What Athletes <em>Say</em></h2>
+    </div>
+
+    <div class="reviews-grid">
+
+      <div class="review-card reveal">
+        <div class="r-stars">★★★★★</div>
+        <p class="r-quote">Fury Co. completely transformed how I train. My coach actually cares about where you're going, not just where you are. Best investment I've made in my entire career.</p>
+        <div class="r-author">
+          <img class="r-avatar" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&q=80" alt="James R.">
+          <div>
+            <div class="r-name">James R.</div>
+            <div class="r-meta">College Football — Linebacker</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card reveal reveal-delay-1">
+        <div class="r-stars">★★★★★</div>
+        <p class="r-quote">Six months on the online program and the results are undeniable. Dropped 2 full seconds off my 40 and added 25 lbs to my squat. These programs absolutely work.</p>
+        <div class="r-author">
+          <img class="r-avatar" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&q=80" alt="Alyssa M.">
+          <div>
+            <div class="r-name">Alyssa M.</div>
+            <div class="r-meta">Track & Field — Sprinter</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card reveal reveal-delay-2">
+        <div class="r-stars">★★★★★</div>
+        <p class="r-quote">The community here is unlike anything I've ever been part of. Everyone pushes each other. "Leave No One Behind" isn't just words — they live it every single day.</p>
+        <div class="r-author">
+          <img class="r-avatar" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&q=80" alt="Carlos V.">
+          <div>
+            <div class="r-name">Carlos V.</div>
+            <div class="r-meta">MMA Fighter</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card reveal">
+        <div class="r-stars">★★★★★</div>
+        <p class="r-quote">Had my custom container gym designed and installed in 6 weeks. The quality is incredible and the team made the entire process seamless. Already planning the second build.</p>
+        <div class="r-author">
+          <img class="r-avatar" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&q=80" alt="Ryan K.">
+          <div>
+            <div class="r-name">Ryan K.</div>
+            <div class="r-meta">Custom Gym Client</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card reveal reveal-delay-1">
+        <div class="r-stars">★★★★★</div>
+        <p class="r-quote">Post-surgery rehab with Fury Co. was the best decision I made. Their performance-rehab approach got me back on the field faster than any specialist predicted. Grateful.</p>
+        <div class="r-author">
+          <img class="r-avatar" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop&q=80" alt="Priya N.">
+          <div>
+            <div class="r-name">Priya N.</div>
+            <div class="r-meta">Soccer — Midfielder</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card reveal reveal-delay-2">
+        <div class="r-stars">★★★★★</div>
+        <p class="r-quote">I've been through a lot of programs. Fury Co. stands above everything. The attention to programming detail, weekly check-ins, constant adjustments — zero fluff, all results.</p>
+        <div class="r-author">
+          <img class="r-avatar" src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=100&h=100&fit=crop&q=80" alt="Derek P.">
+          <div>
+            <div class="r-name">Derek P.</div>
+            <div class="r-meta">Powerlifter</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     STORE — TOP 4 PRODUCTS
+============================================================ -->
+<section id="store" class="section-pad">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="s-label">Gear Up</div>
+      <h2 class="s-title">Fury <em>Store</em></h2>
+    </div>
+
+    <div class="store-grid reveal reveal-delay-1">
+
+      <div class="prod-card">
+        <div class="prod-img">
+          <img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=500&q=80" alt="Fury Co. Performance Tee" loading="lazy">
+          <span class="prod-badge">Bestseller</span>
+          <div class="prod-cta">Quick Add</div>
+        </div>
+        <div class="prod-cat">Tops</div>
+        <div class="prod-name">Fury Co. Performance Tee</div>
+        <div class="prod-price">$42</div>
+      </div>
+
+      <div class="prod-card">
+        <div class="prod-img">
+          <img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=500&q=80" alt="Fury Co. Training Shorts" loading="lazy">
+          <div class="prod-cta">Quick Add</div>
+        </div>
+        <div class="prod-cat">Bottoms</div>
+        <div class="prod-name">Fury Co. Training Shorts</div>
+        <div class="prod-price">$55</div>
+      </div>
+
+      <div class="prod-card">
+        <div class="prod-img">
+          <img src="https://images.unsplash.com/photo-1556821840-3a63f15732ce?w=500&q=80" alt="Fury Co. Performance Hoodie" loading="lazy">
+          <span class="prod-badge">New Drop</span>
+          <div class="prod-cta">Quick Add</div>
+        </div>
+        <div class="prod-cat">Outerwear</div>
+        <div class="prod-name">Fury Co. Performance Hoodie</div>
+        <div class="prod-price">$85</div>
+      </div>
+
+      <div class="prod-card">
+        <div class="prod-img">
+          <img src="https://images.unsplash.com/photo-1605518216938-7c31b7b14ad0?w=500&q=80" alt="Fury Co. Compression Set" loading="lazy">
+          <div class="prod-cta">Quick Add</div>
+        </div>
+        <div class="prod-cat">Sets</div>
+        <div class="prod-name">Fury Co. Compression Set</div>
+        <div class="prod-price">$110</div>
+      </div>
+
+    </div>
+
+    <div class="store-foot reveal">
+      <a href="https://furycompany.com/collections/clothing" target="_blank" rel="noopener" class="btn btn-red">
+        Shop All Products &nbsp;→
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     GALLERY
+============================================================ -->
+<section id="gallery" class="section-pad">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="s-label">Life at Fury Co.</div>
+      <h2 class="s-title">Gallery</h2>
+    </div>
+  </div>
+
+  <div style="padding: 0 4px;">
+    <div class="gallery-grid reveal">
+      <div class="g-item">
+        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=900&q=80" alt="Fury Co. facility" loading="lazy">
+      </div>
+      <div class="g-item">
+        <img src="https://images.unsplash.com/photo-1517963879433-6ad2b056d712?w=700&q=80" alt="Athletes training" loading="lazy">
+      </div>
+      <div class="g-item">
+        <img src="https://images.unsplash.com/photo-1574680096145-d05b474e2155?w=600&q=80" alt="Weight training" loading="lazy">
+      </div>
+      <div class="g-item">
+        <img src="https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?w=700&q=80" alt="Track work" loading="lazy">
+      </div>
+      <div class="g-item">
+        <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=700&q=80" alt="Group training" loading="lazy">
+      </div>
+      <div class="g-item">
+        <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=700&q=80" alt="Cardio session" loading="lazy">
+      </div>
+      <div class="g-item">
+        <img src="https://images.unsplash.com/photo-1598971639058-fab3c3109a00?w=900&q=80" alt="Athlete workout" loading="lazy">
+      </div>
+      <div class="g-item">
+        <img src="https://images.unsplash.com/photo-1485395578879-6c658fb06165?w=700&q=80" alt="Training session" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     CONTACT + MAP
+============================================================ -->
+<section id="contact" class="section-pad">
+  <div class="container">
+    <div class="contact-grid">
+
+      <!-- left: info + map -->
+      <div>
+        <div class="contact-info reveal">
+          <div class="s-label">We're Here For You</div>
+          <h2>Come <em>Train</em><br>With Us</h2>
+          <p>
+            Stop by, give us a call, or send a message.
+            Our team is ready to help you get started on the path to elite performance.
+          </p>
+
+          <div class="c-items">
+            <div class="c-item">
+              <div class="c-icon">📍</div>
+              <div class="c-text">
+                <strong>Location</strong>
+                <span>123 Fury Way, Athletic District<br>Your City, ST 00000</span>
+              </div>
+            </div>
+            <div class="c-item">
+              <div class="c-icon">📞</div>
+              <div class="c-text">
+                <strong>Phone</strong>
+                <span>(555) 123-4567</span>
+              </div>
+            </div>
+            <div class="c-item">
+              <div class="c-icon">✉️</div>
+              <div class="c-text">
+                <strong>Email</strong>
+                <span>info@furycompany.com</span>
+              </div>
+            </div>
+            <div class="c-item">
+              <div class="c-icon">🕐</div>
+              <div class="c-text">
+                <strong>Hours</strong>
+                <span>Mon–Fri &nbsp;5:30 am – 9:00 pm<br>Sat–Sun &nbsp;7:00 am – 6:00 pm</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="map-wrap reveal reveal-delay-1">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.019!2d-122.4194!3d37.7749!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80859a6d00690021%3A0x4a501367f076adff!2sSan%20Francisco%2C%20CA!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+            title="Fury Co. Location Map"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+
+      <!-- right: contact form -->
+      <div class="contact-form-wrap reveal reveal-delay-1">
+        <span class="s-label">Send a Message</span>
+        <form class="cform" id="contact-form" novalidate>
+          <div class="cform-row">
+            <input type="text"  name="cfname" placeholder="First Name" required>
+            <input type="text"  name="clname" placeholder="Last Name"  required>
+          </div>
+          <input type="email" name="cemail" placeholder="Email Address" required>
+          <input type="tel"   name="cphone" placeholder="Phone Number (optional)">
+          <textarea name="cmsg" placeholder="How can we help you achieve your goals?" required></textarea>
+          <button type="submit" class="btn btn-red" style="width:100%; font-size:1.2rem; justify-content:center;">
+            Send Message &nbsp;→
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="f-logo">FURY<span>.</span>CO</div>
+      <div class="f-tagline">Work Hard. Never Give Up. Leave No One Behind.</div>
+    </div>
+
+    <ul class="f-links">
+      <li><a href="#programs">Programs</a></li>
+      <li><a href="#stories">Stories</a></li>
+      <li><a href="https://furycompany.com/collections/clothing" target="_blank" rel="noopener">Store</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="https://furycompany.com/pages/athlete-training" target="_blank" rel="noopener">Athlete Training</a></li>
+    </ul>
+
+    <div class="f-social">
+      <a href="#" aria-label="Instagram">IG</a>
+      <a href="#" aria-label="Facebook">FB</a>
+      <a href="#" aria-label="YouTube">YT</a>
+      <a href="#" aria-label="TikTok">TK</a>
+    </div>
+
+    <div class="f-copy">© 2025 Fury Co. All rights reserved.</div>
+  </div>
+</footer>
+
+
+<!-- ============================================================
+     JAVASCRIPT
+============================================================ -->
+<script>
+  /* ---------- mobile nav ---------- */
+  const hamburger  = document.getElementById('hamburger');
+  const mobileNav  = document.getElementById('mobile-nav');
+
+  hamburger.addEventListener('click', () => {
+    const open = mobileNav.classList.toggle('open');
+    hamburger.setAttribute('aria-expanded', open);
+  });
+
+  document.querySelectorAll('.m-link').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileNav.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', false);
+    });
+  });
+
+  /* ---------- navbar scroll class ---------- */
+  const navEl = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    navEl.classList.toggle('scrolled', window.scrollY > 40);
+  }, { passive: true });
+
+  /* ---------- scroll reveal ---------- */
+  const revealObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); revealObs.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+  /* ---------- stat counters ---------- */
+  const counterObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      e.target.querySelectorAll('[data-target]').forEach(el => {
+        const target = parseInt(el.dataset.target, 10);
+        const suffix = el.dataset.suffix || '';
+        let cur = 0;
+        const step = target / 55;
+        const tick = setInterval(() => {
+          cur += step;
+          if (cur >= target) { cur = target; clearInterval(tick); }
+          el.textContent = Math.round(cur) + suffix;
+        }, 18);
+      });
+      counterObs.unobserve(e.target);
+    });
+  }, { threshold: 0.5 });
+  const statsBar = document.querySelector('.hero-stats');
+  if (statsBar) counterObs.observe(statsBar);
+
+  /* ---------- form feedback ---------- */
+  function handleForm(formId) {
+    const form = document.getElementById(formId);
+    if (!form) return;
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const btn = form.querySelector('[type="submit"]');
+      const orig = btn.innerHTML;
+      btn.innerHTML = '✓ &nbsp;Submitted!';
+      btn.style.background = '#16a34a';
+      btn.disabled = true;
+      setTimeout(() => {
+        btn.innerHTML = orig;
+        btn.style.background = '';
+        btn.disabled = false;
+        form.reset();
+      }, 3500);
+    });
+  }
+  handleForm('booking-form');
+  handleForm('contact-form');
+</script>
+
+</body>
+</html>
