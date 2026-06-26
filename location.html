@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Location | Fury Co. Athletics</title>
+<meta name="description" content="Fury Co. Athletics is located at 1234 Champions Drive, Houston, TX 77002. Get directions, hours, and contact info.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+<link rel="stylesheet" href="styles.css">
+<style>
+.loc-page{min-height:100svh;padding-top:100px;background:var(--ink)}
+.loc-hero{padding:clamp(48px,7vw,96px) 0 0}
+.loc-hero-inner{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,90px);align-items:end;padding-bottom:clamp(40px,5vw,70px);border-bottom:1px solid var(--line)}
+.loc-hero h1{font-family:var(--f-disp);font-weight:400;text-transform:uppercase;font-size:clamp(52px,9vw,118px);line-height:.88;letter-spacing:-.015em;margin:0;color:var(--on-dark)}
+.loc-hero h1 span{color:var(--acc)}
+.loc-hero-right{display:flex;flex-direction:column;gap:24px}
+.loc-address{display:flex;flex-direction:column;gap:6px}
+.loc-address-label{font-family:var(--f-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--acc)}
+.loc-address-text{font-family:var(--f-disp);font-size:clamp(20px,2.4vw,30px);text-transform:uppercase;color:var(--on-dark);line-height:1.1}
+.loc-hero-p{color:var(--on-dark-mut);font-size:15px;line-height:1.65;max-width:42ch}
+.loc-dir-btn{display:inline-flex;align-items:center;gap:10px;background:var(--acc);color:var(--acc-ink);font-weight:700;font-size:14px;padding:13px 24px;border-radius:100px;text-decoration:none;transition:transform .3s,box-shadow .3s;align-self:flex-start}
+.loc-dir-btn:hover{transform:translateY(-2px);box-shadow:0 12px 30px -10px var(--acc-glow)}
+.loc-map{width:100%;height:clamp(300px,45vw,560px);display:block;border:0;filter:grayscale(.5) invert(.92) contrast(.9)}
+.loc-info{padding:clamp(48px,6vw,80px) 0}
+.loc-info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.loc-card{background:var(--ink-2);border-radius:var(--r);padding:28px 26px;display:flex;flex-direction:column;gap:16px}
+.loc-card-ico{width:48px;height:48px;border-radius:13px;background:var(--acc-deep);color:var(--acc);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.loc-card h3{font-family:var(--f-sans);font-weight:800;font-size:17px;margin:0;color:var(--on-dark)}
+.loc-card-body{display:flex;flex-direction:column;gap:8px}
+.loc-row{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-top:1px solid var(--line)}
+.loc-row:first-child{border-top:none;padding-top:0}
+.loc-row-l{font-size:12px;font-weight:700;color:var(--on-dark-dim);text-transform:uppercase;letter-spacing:.06em;white-space:nowrap;min-width:52px;padding-top:2px}
+.loc-row-v{font-size:14.5px;color:var(--on-dark-mut);line-height:1.45}
+.loc-row-v a{color:var(--acc);font-weight:600}
+.loc-row-v strong{color:var(--on-dark)}
+.loc-contact{background:var(--ink-2);padding:clamp(56px,7vw,96px) 0}
+.loc-contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:clamp(48px,6vw,90px);align-items:start}
+.loc-contact-copy h2{font-family:var(--f-disp);font-weight:400;text-transform:uppercase;font-size:clamp(36px,5vw,66px);line-height:.9;margin:0 0 20px;color:var(--on-dark)}
+.loc-contact-copy h2 span{color:var(--acc)}
+.loc-contact-copy p{color:var(--on-dark-mut);font-size:15px;line-height:1.7;margin:0 0 28px}
+.loc-contact-links{display:flex;flex-direction:column;gap:14px}
+.loc-contact-link{display:flex;align-items:center;gap:14px;padding:16px 20px;background:var(--ink);border-radius:var(--r-sm);text-decoration:none;transition:background .3s}
+.loc-contact-link:hover{background:var(--ink-card)}
+.lcl-ico{width:42px;height:42px;border-radius:11px;background:var(--acc-deep);color:var(--acc);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.lcl-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--on-dark-dim)}
+.lcl-value{font-size:14.5px;font-weight:600;color:var(--on-dark)}
+.loc-form{background:var(--ink-card);border-radius:var(--r);padding:clamp(24px,3vw,38px);display:flex;flex-direction:column;gap:20px}
+.loc-form h3{font-family:var(--f-disp);font-weight:400;text-transform:uppercase;font-size:26px;margin:0;color:var(--on-dark)}
+.loc-form .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.loc-form .field label{display:block;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--on-dark-dim);margin-bottom:7px}
+.form-submit{display:flex;justify-content:flex-end}
+.loc-social{padding:clamp(32px,4vw,52px) 0;border-top:1px solid var(--line)}
+.loc-social-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.loc-social-text{font-family:var(--f-disp);font-size:clamp(18px,2.2vw,26px);text-transform:uppercase;color:var(--on-dark)}
+.loc-social-links{display:flex;gap:12px}
+.loc-soc-btn{width:48px;height:48px;border-radius:50%;border:1.5px solid var(--line-2);display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--on-dark-mut);transition:all .3s;text-decoration:none}
+.loc-soc-btn:hover{border-color:var(--acc);color:var(--acc)}
+@media(max-width:960px){
+  .loc-hero-inner,.loc-contact-inner{grid-template-columns:1fr}
+  .loc-info-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:680px){
+  .loc-info-grid,.loc-form .form-row{grid-template-columns:1fr}
+  .loc-social-inner{flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="wrap header-inner">
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="faq.html">FAQ</a>
+      <a href="location.html" class="active">Location</a>
+    </nav>
+    <a href="index.html" class="brand" aria-label="Fury Co. Athletics"><img src="https://furycompany.com/cdn/shop/files/Logos_Transparent-73.png?v=1722801560&width=340" alt="Fury Co. Athletics"></a>
+    <div class="header-cta">
+      <a href="tel:+17135550192" class="login-link"><i class="ph-bold ph-phone"></i><span>(713) 555-0192</span></a>
+      <a href="book-classes.html" class="btn btn-primary btn-sm"><span>Book Classes</span> <i class="ph-bold ph-calendar-check"></i></a>
+      <button class="menu-btn" aria-label="Menu"><i class="ph-bold ph-list"></i></button>
+    </div>
+  </div>
+</header>
+
+<main class="loc-page">
+  <div class="wrap">
+    <div class="loc-hero">
+      <div class="loc-hero-inner">
+        <h1>Find<br><span>the Gym</span></h1>
+        <div class="loc-hero-right">
+          <div class="loc-address">
+            <span class="loc-address-label">Flagship Facility</span>
+            <span class="loc-address-text">1234 Champions Drive<br>Houston, TX 77002</span>
+          </div>
+          <p class="loc-hero-p">Centrally located in Houston with additional training locations across the city. Free on-site parking. Walk-ins welcome when space permits.</p>
+          <a href="https://maps.google.com/?q=Houston+TX+77002" target="_blank" rel="noopener" class="loc-dir-btn"><i class="ph-bold ph-navigation-arrow"></i> Get Directions</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <iframe class="loc-map" title="Fury Co. Athletics location" src="https://www.google.com/maps?q=Houston%2C%20TX%2077002&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+  <div class="wrap loc-info">
+    <div class="loc-info-grid">
+      <div class="loc-card reveal">
+        <div class="loc-card-ico"><i class="ph-bold ph-clock"></i></div>
+        <h3>Hours</h3>
+        <div class="loc-card-body">
+          <div class="loc-row"><span class="loc-row-l">Mon–Fri</span><span class="loc-row-v">6:00 AM – 8:00 PM</span></div>
+          <div class="loc-row"><span class="loc-row-l">Sat</span><span class="loc-row-v">6:00 AM – 8:00 PM</span></div>
+          <div class="loc-row"><span class="loc-row-l">Sun</span><span class="loc-row-v">8:00 AM – 2:00 PM</span></div>
+          <div class="loc-row"><span class="loc-row-l">Note</span><span class="loc-row-v">Early, evening &amp; weekend sessions available</span></div>
+        </div>
+      </div>
+      <div class="loc-card reveal" data-d="1">
+        <div class="loc-card-ico"><i class="ph-bold ph-map-pin"></i></div>
+        <h3>Getting Here</h3>
+        <div class="loc-card-body">
+          <div class="loc-row"><span class="loc-row-l">Parking</span><span class="loc-row-v"><strong>Free on-site parking</strong> available</span></div>
+          <div class="loc-row"><span class="loc-row-l">Transit</span><span class="loc-row-v">METRO stops within walking distance</span></div>
+          <div class="loc-row"><span class="loc-row-l">Address</span><span class="loc-row-v">1234 Champions Drive, Houston, TX 77002</span></div>
+          <div class="loc-row"><span class="loc-row-l">Map</span><span class="loc-row-v"><a href="https://maps.google.com/?q=Houston+TX+77002" target="_blank" rel="noopener">Open in Google Maps</a></span></div>
+        </div>
+      </div>
+      <div class="loc-card reveal" data-d="2">
+        <div class="loc-card-ico"><i class="ph-bold ph-calendar-check"></i></div>
+        <h3>Booking &amp; Access</h3>
+        <div class="loc-card-body">
+          <div class="loc-row"><span class="loc-row-l">Book</span><span class="loc-row-v"><a href="book-classes.html">View the schedule</a> or walk in</span></div>
+          <div class="loc-row"><span class="loc-row-l">First</span><span class="loc-row-v">First session free — no commitment</span></div>
+          <div class="loc-row"><span class="loc-row-l">Call</span><span class="loc-row-v"><a href="tel:+17135550192">(713) 555-0192</a></span></div>
+          <div class="loc-row"><span class="loc-row-l">Builds</span><span class="loc-row-v">Custom gym quotes — inquire below</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="loc-contact" id="contact">
+    <div class="wrap loc-contact-inner">
+      <div class="loc-contact-copy">
+        <h2>Get in<br><span>Touch</span></h2>
+        <p>Drop us a message for program inquiries, custom gym build-outs, private coaching or general questions. We'll get back to you promptly.</p>
+        <div class="loc-contact-links">
+          <a href="mailto:info@furycoathletics.com" class="loc-contact-link"><div class="lcl-ico"><i class="ph-bold ph-envelope"></i></div><div><div class="lcl-label">Email</div><div class="lcl-value">info@furycoathletics.com</div></div></a>
+          <a href="tel:+17135550192" class="loc-contact-link"><div class="lcl-ico"><i class="ph-bold ph-phone"></i></div><div><div class="lcl-label">Phone</div><div class="lcl-value">(713) 555-0192</div></div></a>
+          <a href="book-classes.html" class="loc-contact-link"><div class="lcl-ico"><i class="ph-bold ph-calendar-check"></i></div><div><div class="lcl-label">Book a Session</div><div class="lcl-value">View the weekly schedule</div></div></a>
+        </div>
+      </div>
+      <form class="loc-form" id="locForm">
+        <h3>Send a Message</h3>
+        <div class="form-row">
+          <div class="field"><label>First Name</label><input type="text" name="first_name" placeholder="First name" required></div>
+          <div class="field"><label>Last Name</label><input type="text" name="last_name" placeholder="Last name" required></div>
+        </div>
+        <div class="field"><label>Email</label><input type="email" name="email" placeholder="your@email.com" required></div>
+        <div class="field">
+          <label>Inquiry Type</label>
+          <select name="type" required>
+            <option value="">Select one</option>
+            <option>Program Information</option>
+            <option>Custom Gym Build-Out</option>
+            <option>Private Coaching</option>
+            <option>Youth Development</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="field"><label>Message</label><textarea name="message" placeholder="Tell us what you're working toward..." required></textarea></div>
+        <div class="form-submit"><button type="submit" class="btn btn-primary"><span>Send Message</span> <i class="ph-bold ph-paper-plane-tilt"></i></button></div>
+      </form>
+    </div>
+
+    <div class="wrap">
+      <div class="loc-social">
+        <div class="loc-social-inner">
+          <span class="loc-social-text">Follow the Fury</span>
+          <div class="loc-social-links">
+            <a href="#" class="loc-soc-btn" aria-label="Instagram"><i class="ph-bold ph-instagram-logo"></i></a>
+            <a href="#" class="loc-soc-btn" aria-label="X"><i class="ph-bold ph-x-logo"></i></a>
+            <a href="#" class="loc-soc-btn" aria-label="YouTube"><i class="ph-bold ph-youtube-logo"></i></a>
+            <a href="#" class="loc-soc-btn" aria-label="TikTok"><i class="ph-bold ph-tiktok-logo"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="https://furycompany.com/cdn/shop/files/Logos_Transparent-73.png?v=1722801560&width=340" alt="Fury Co. Athletics">
+        <p>Work Hard. Never Give Up. Leave No One Behind. Elite performance training and custom gym build-outs in Houston, Texas.</p>
+      </div>
+      <div class="footer-col"><h5>Training</h5><a href="index.html#programs">Speed &amp; Agility</a><a href="index.html#programs">Strength &amp; Conditioning</a><a href="index.html#programs">Youth Development</a><a href="about.html#build">Custom Gym Build-Out</a></div>
+      <div class="footer-col"><h5>Company</h5><a href="about.html">About</a><a href="faq.html">FAQ</a><a href="location.html">Location</a><a href="book-classes.html">Book Classes</a></div>
+      <div class="footer-col"><h5>Connect</h5><a href="#">Instagram</a><a href="mailto:info@furycoathletics.com">Email Us</a><a href="location.html#contact">Visit / Rentals</a><a href="index.html#store">Shop Gear</a></div>
+    </div>
+    <div class="footer-bot">
+      <p>&copy; 2026 Fury Co. Athletics &middot; 1234 Champions Drive, Houston, TX 77002</p>
+      <div class="fb-links"><a href="#top">Back to top &uarr;</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const header = document.querySelector('.header');
+window.addEventListener('scroll',()=>header.classList.toggle('scrolled',window.scrollY>40),{passive:true});
+const menuBtn = document.querySelector('.menu-btn');
+const navEl = document.querySelector('.header .nav');
+if(menuBtn&&navEl){menuBtn.addEventListener('click',()=>navEl.classList.toggle('open'));}
+const io = new IntersectionObserver(entries=>{entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }});},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+document.getElementById('locForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const btn = e.target.querySelector('[type=submit]');
+  btn.querySelector('span').textContent = 'Sent!';
+  setTimeout(()=>{ btn.querySelector('span').textContent = 'Send Message'; e.target.reset(); }, 3000);
+});
+</script>
+</body>
+</html>

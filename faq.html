@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FAQ | Fury Co. Athletics</title>
+<meta name="description" content="Frequently asked questions about Fury Co. Athletics — programs, booking, pricing, the facility, youth training and custom gym build-outs.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+<link rel="stylesheet" href="styles.css">
+<style>
+.faq-page{min-height:100svh;padding-top:100px;background:var(--ink)}
+.faq-hero{padding:clamp(48px,7vw,96px) 0 clamp(32px,4vw,52px);border-bottom:1px solid var(--line)}
+.faq-hero-inner{display:flex;align-items:flex-end;justify-content:space-between;gap:32px;flex-wrap:wrap}
+.faq-hero h1{font-family:var(--f-disp);font-weight:400;text-transform:uppercase;font-size:clamp(54px,9vw,120px);line-height:.88;letter-spacing:-.015em;margin:0;color:var(--on-dark)}
+.faq-hero h1 span{color:var(--acc)}
+.faq-hero-sub{max-width:36ch}
+.faq-hero-sub p{color:var(--on-dark-mut);font-size:16px;line-height:1.65;margin:0 0 18px}
+.faq-hero-sub a{color:var(--acc);font-weight:600}
+.faq-body{display:grid;grid-template-columns:220px 1fr;gap:clamp(32px,5vw,72px);padding:clamp(40px,5vw,72px) 0 clamp(60px,8vw,100px);align-items:start}
+.faq-nav{display:flex;flex-direction:column;gap:4px;position:sticky;top:110px}
+.faq-nav-item{font-size:13.5px;font-weight:600;color:var(--on-dark-dim);padding:9px 14px;border-radius:10px;cursor:pointer;transition:background .25s,color .25s;border:none;background:none;text-align:left}
+.faq-nav-item:hover{background:var(--ink-2);color:var(--on-dark)}
+.faq-nav-item.on{background:var(--acc-deep);color:var(--acc)}
+.faq-categories{display:flex;flex-direction:column;gap:clamp(40px,5vw,64px)}
+.faq-cat{display:flex;flex-direction:column;gap:0}
+.faq-cat-title{font-family:var(--f-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--acc);margin:0 0 18px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-q{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 0;cursor:pointer;background:none;border:none;width:100%;text-align:left}
+.faq-q-text{font-size:17px;font-weight:700;color:var(--on-dark);line-height:1.35;transition:color .25s}
+.faq-q:hover .faq-q-text{color:var(--acc)}
+.faq-q-ico{width:32px;height:32px;border-radius:50%;border:1.5px solid var(--line-2);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--on-dark-mut);font-size:16px;transition:all .3s}
+.faq-item.open .faq-q-ico{border-color:var(--acc);color:var(--acc);transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .45s cubic-bezier(.22,.61,.36,1)}
+.faq-item.open .faq-a{max-height:600px}
+.faq-a-inner{padding:0 0 22px;color:var(--on-dark-mut);font-size:15px;line-height:1.7}
+.faq-a-inner a{color:var(--acc);font-weight:600}
+.faq-a-inner strong{color:var(--on-dark);font-weight:700}
+.faq-cta{background:var(--ink-2);padding:clamp(40px,5vw,64px) 0;text-align:center}
+.faq-cta h2{font-family:var(--f-disp);font-weight:400;text-transform:uppercase;font-size:clamp(32px,5vw,66px);line-height:.9;margin:0 0 20px;color:var(--on-dark)}
+.faq-cta h2 span{color:var(--acc)}
+.faq-cta p{color:var(--on-dark-mut);font-size:16px;max-width:44ch;margin:0 auto 30px;line-height:1.6}
+.faq-cta-row{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap}
+@media(max-width:780px){
+  .faq-body{grid-template-columns:1fr}
+  .faq-nav{display:none}
+  .faq-hero-inner{flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="wrap header-inner">
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="faq.html" class="active">FAQ</a>
+      <a href="location.html">Location</a>
+    </nav>
+    <a href="index.html" class="brand" aria-label="Fury Co. Athletics"><img src="https://furycompany.com/cdn/shop/files/Logos_Transparent-73.png?v=1722801560&width=340" alt="Fury Co. Athletics"></a>
+    <div class="header-cta">
+      <a href="tel:+17135550192" class="login-link"><i class="ph-bold ph-phone"></i><span>(713) 555-0192</span></a>
+      <a href="book-classes.html" class="btn btn-primary btn-sm"><span>Book Classes</span> <i class="ph-bold ph-calendar-check"></i></a>
+      <button class="menu-btn" aria-label="Menu"><i class="ph-bold ph-list"></i></button>
+    </div>
+  </div>
+</header>
+
+<main class="faq-page">
+  <div class="wrap">
+    <div class="faq-hero">
+      <div class="faq-hero-inner">
+        <h1>Frequently<br><span>Asked</span></h1>
+        <div class="faq-hero-sub">
+          <p>Everything you need to know before your first session. Can't find what you're looking for? Reach out directly.</p>
+          <a href="mailto:info@furycoathletics.com">info@furycoathletics.com</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-body">
+      <nav class="faq-nav" aria-label="FAQ categories">
+        <button class="faq-nav-item on" data-cat="getting-started">Getting Started</button>
+        <button class="faq-nav-item" data-cat="programs">Programs</button>
+        <button class="faq-nav-item" data-cat="booking">Booking</button>
+        <button class="faq-nav-item" data-cat="pricing">Pricing</button>
+        <button class="faq-nav-item" data-cat="youth">Youth</button>
+        <button class="faq-nav-item" data-cat="facility">The Facility</button>
+        <button class="faq-nav-item" data-cat="builds">Custom Builds</button>
+      </nav>
+
+      <div class="faq-categories" id="faqList">
+
+        <div class="faq-cat" data-cat="getting-started">
+          <div class="faq-cat-title">Getting Started</div>
+          <div class="faq-item"><button class="faq-q"><span class="faq-q-text">Do I need experience to start?</span><span class="faq-q-ico"><i class="ph-bold ph-plus"></i></span></button><div class="faq-a"><div class="faq-a-inner">No experience required. Fury Co. welcomes complete beginners through elite competitors. Every program starts with an assessment so your coach can meet you where you are and build from there.</div></div></div>
+          <div class="faq-item"><button class="faq-q"><span class="faq-q-text">Is my first session really free?</span><span class="faq-q-ico"><i class="ph-bold ph-plus"></i></span></button><div class="faq-a"><div class="faq-a-inner">Yes. Your first session is on us — no commitment required. <a href="book-classes.html">Book a free session</a>, tell us your goals, and we'll match you with the right program and coach.</div></div></div>
+          <div class="faq-item"><button class="faq-q"><span class="faq-q-text">What should I wear and bring?</span><span class="faq-q-ico"><i class="ph-bold ph-plus"></i></span></button><div class="faq-a"><div class="faq-a-inner">Wear comfortable athletic clothing and training shoes you can move freely in. Bring a water bottle and a towel. Everything else you need is provided on site.</div></div></div>
+          <div class="faq-item"><button class="faq-q"><span class="faq-q-text">How do I know which program is right for me?</span><span class="faq-q-ico"><i class="ph-bold ph-plus"></i></span></button><div class="faq-a"><div class="faq-a-inner">Not sure yet? Pick <strong>"Not Sure Yet"</strong> when you book. Your first session includes a movement assessment and a conversation about your goals, and your coach will recommend the best fit.</div></div></div>
+        </div>
+
+        <div class="faq-cat" data-cat="programs">
+          <div class="faq-cat-title">Programs</div>
+          <div class="faq-item"><button class="faq-q"><span class="faq-q-text">What programs do you offer?</span><span class="faq-q-ico"><i class="ph-bold ph-plus"></i></span></button><div class="faq-a"><div class="faq-a-inner">We offer <strong>Speed &amp; Agility</strong>, <strong>Strength &amp; Conditioning</strong>, <strong>Youth Development</strong> (8–17), <strong>Small Group Training</strong>, <strong>1-on-1 Private Coaching</strong>, and <strong>Custom Gym Build-Outs</strong>. See the full list on the <a href="index.html#programs">Programs section</a>.</div></div></div>
+          <div class="faq-item"><button class="faq-q"><span class="faq-q-text">Are programs sport-specific?</span><span class="faq-q-ico"><i class="ph-bold ph-plus"></i></span></button><div class="faq-a"><div class="faq-a-inner">Yes. Every program is periodized and built around the demands of your sport and your athlete profile — never a cookie-cutter routine. We currently coach athletes across 12+ sports.</div></div></div>
+          <div class="faq-item"><button class="faq-q"><span class="faq-q-text">Group or private — what's the difference?</span><span class="faq-q-ico"><i class="ph-bold ph-plus"></i></span></button><div class="faq-a"><div class="faq-a-inner">Small group training is high-energy and team-driven with the same coaching standard for everyone. 1-on-1 private coaching gives you focused, individualized attention built entirely around your goals and schedule.</div></div></div>
+        </div>
+
+        <div class="faq-cat" data-cat="booking">
+          <div class="faq-cat-title">Booking</div>
+          <div class="faq-item"><button class="faq-q"><span class="faq-q-text">How do I book a session?</span><span class="faq-q-ico"><i class="ph-bold ph-plus"></i></span></button><div class="faq-a"><div class="faq-a-inner">Use the <a href="book-classes.html">Book Classes</a> page to browse the weekly schedule, or fill out the quick form on the <a href="index.html#booking">home page</a> and we'll reach out to confirm your spot.</div></div></div>
+          <div class="faq-item"><button class="faq-q"><span class="faq-q-text">How do I cancel or reschedule?</span><span class="faq-q-ico"><i class="ph-bold ph-plus"></i></span></button><div class="faq-a"><div class="faq-a-inner">Contact us at least 12 hours before your session to cancel or reschedule so we can open your spot for another athlete. Call <a href="tel:+17135550192">(713) 555-0192</a> or email us.</div></div></div>
+          <div class="faq-item"><button class="faq-q"><span class="faq-q-text">Can I drop in without booking?</span><span class="faq-q-ico"><i class="ph-bold ph-plus"></i></span></button><div class="faq-a"><div class="faq-a-inner">Walk-ins are welcome when space permits, but booking ahead is strongly recommended — small group and specialty sessions fill quickly.</div></div></div>
+        </div>
+
+        <div class="faq-cat" data-cat="pricing">
+          <div class="faq-cat-title">Pricing</div>
+          <div class="faq-item"><button class="faq-q"><span class="faq-q-text">How much do programs cost?</span><span class="faq-q-ico"><i class="ph-bold ph-plus"></i></span></button><div class="faq-a"><div class="faq-a-inner">Pricing varies by program and format (drop-in, pack, or membership). Your first session is free — after that we'll walk you through the options that fit your goals and budget. Email <a href="mailto:info@furycoathletics.com">info@furycoathletics.com</a> for current rates.</div></div></div>
+          <div class="faq-item"><button class="faq-q"><span class="faq-q-text">Do you offer memberships?</span><span class="faq-q-ico"><i class="ph-bold ph-plus"></i></span></button><div class="faq-a"><div class="faq-a-inner">Yes. Monthly memberships provide ongoing access to training at a reduced per-session rate, with options for unlimited group access. Class packs are also available.</div></div></div>
+          <div class="faq-item"><button class="faq-q"><span class="faq-q-text">Is there a discount for youth or families?</span><span class="faq-q-ico"><i class="ph-bold ph-plus"></i></span></button><div class="faq-a"><div class="faq-a-inner">We offer family and multi-athlete rates as well as dedicated youth pricing. Ask your coach or reach out and we'll find the right plan.</div></div></div>
+        </div>
+
+        <div class="faq-cat" data-cat="youth">
+          <div class="faq-cat-title">Youth Development</div>
+          <div class="faq-item"><button class="faq-q"><span class="faq-q-text">What ages do you train?</span><span class="faq-q-ico"><i class="ph-bold ph-plus"></i></span></button><div class="faq-a"><div class="faq-a-inner">Our Youth Development program is built for athletes <strong>ages 8–17</strong>, grouped by age and ability so training is safe, appropriate and effective.</div></div></div>
+          <div class="faq-item"><button class="faq-q"><span class="faq-q-text">Is youth training safe?</span><span class="faq-q-ico"><i class="ph-bold ph-plus"></i></span></button><div class="faq-a"><div class="faq-a-inner">Absolutely. Young athletes train under certified coaches using age-appropriate progressions that prioritize movement quality, technique and confidence before load. Safety comes first, always.</div></div></div>
+          <div class="faq-item"><button class="faq-q"><span class="faq-q-text">Can parents watch sessions?</span><span class="faq-q-ico"><i class="ph-bold ph-plus"></i></span></button><div class="faq-a"><div class="faq-a-inner">Yes. We have a viewing area for parents and are happy to share progress updates so you can see exactly how your athlete is developing.</div></div></div>
+        </div>
+
+        <div class="faq-cat" data-cat="facility">
+          <div class="faq-cat-title">The Facility</div>
+          <div class="faq-item"><button class="faq-q"><span class="faq-q-text">Where is Fury Co. located?</span><span class="faq-q-ico"><i class="ph-bold ph-plus"></i></span></button><div class="faq-a"><div class="faq-a-inner">Our flagship facility is at <strong>1234 Champions Drive, Houston, TX 77002</strong>, with additional training locations across the city. See the <a href="location.html">Location page</a> for directions and hours.</div></div></div>
+          <div class="faq-item"><button class="faq-q"><span class="faq-q-text">What are your hours?</span><span class="faq-q-ico"><i class="ph-bold ph-plus"></i></span></button><div class="faq-a"><div class="faq-a-inner">Monday–Saturday <strong>6AM–8PM</strong> and Sunday <strong>8AM–2PM</strong>. Early-morning, evening and weekend sessions are available so your training fits your life.</div></div></div>
+          <div class="faq-item"><button class="faq-q"><span class="faq-q-text">Is parking available?</span><span class="faq-q-ico"><i class="ph-bold ph-plus"></i></span></button><div class="faq-a"><div class="faq-a-inner">Yes — free on-site parking is available at the Champions Drive facility.</div></div></div>
+        </div>
+
+        <div class="faq-cat" data-cat="builds">
+          <div class="faq-cat-title">Custom Gym Build-Outs</div>
+          <div class="faq-item"><button class="faq-q"><span class="faq-q-text">Do you build home gyms?</span><span class="faq-q-ico"><i class="ph-bold ph-plus"></i></span></button><div class="faq-a"><div class="faq-a-inner">Yes. We design and install everything from single-car garage gyms to full commercial performance floors — handling space planning, equipment sourcing, flooring, rigging and turnkey installation. Read more on the <a href="about.html#build">About page</a>.</div></div></div>
+          <div class="faq-item"><button class="faq-q"><span class="faq-q-text">How does the process work?</span><span class="faq-q-ico"><i class="ph-bold ph-plus"></i></span></button><div class="faq-a"><div class="faq-a-inner">Three steps: <strong>Design</strong> (layout and spec to your goals), <strong>Source</strong> (the right equipment for your training and budget), and <strong>Install</strong> (turnkey setup, ready to train). Start with a free consultation via the <a href="location.html#contact">contact form</a>.</div></div></div>
+          <div class="faq-item"><button class="faq-q"><span class="faq-q-text">What's the typical investment?</span><span class="faq-q-ico"><i class="ph-bold ph-plus"></i></span></button><div class="faq-a"><div class="faq-a-inner">Every build is scoped to your space, goals and budget, so pricing varies widely. Reach out for a free quote and we'll provide a detailed estimate after the design phase.</div></div></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-cta">
+    <div class="wrap">
+      <h2>Still Have<br><span>Questions?</span></h2>
+      <p>Reach out directly and we'll get back to you as soon as possible.</p>
+      <div class="faq-cta-row">
+        <a href="mailto:info@furycoathletics.com" class="btn btn-primary"><span>info@furycoathletics.com</span> <i class="ph-bold ph-envelope"></i></a>
+        <a href="location.html" class="btn btn-ghost"><span>Visit the Gym</span> <i class="ph-bold ph-map-pin"></i></a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="https://furycompany.com/cdn/shop/files/Logos_Transparent-73.png?v=1722801560&width=340" alt="Fury Co. Athletics">
+        <p>Work Hard. Never Give Up. Leave No One Behind. Elite performance training and custom gym build-outs in Houston, Texas.</p>
+      </div>
+      <div class="footer-col"><h5>Training</h5><a href="index.html#programs">Speed &amp; Agility</a><a href="index.html#programs">Strength &amp; Conditioning</a><a href="index.html#programs">Youth Development</a><a href="about.html#build">Custom Gym Build-Out</a></div>
+      <div class="footer-col"><h5>Company</h5><a href="about.html">About</a><a href="faq.html">FAQ</a><a href="location.html">Location</a><a href="book-classes.html">Book Classes</a></div>
+      <div class="footer-col"><h5>Connect</h5><a href="#">Instagram</a><a href="mailto:info@furycoathletics.com">Email Us</a><a href="location.html#contact">Visit / Rentals</a><a href="index.html#store">Shop Gear</a></div>
+    </div>
+    <div class="footer-bot">
+      <p>&copy; 2026 Fury Co. Athletics &middot; 1234 Champions Drive, Houston, TX 77002</p>
+      <div class="fb-links"><a href="#top">Back to top &uarr;</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const header = document.querySelector('.header');
+window.addEventListener('scroll',()=>header.classList.toggle('scrolled',window.scrollY>40),{passive:true});
+
+const menuBtn = document.querySelector('.menu-btn');
+const navEl = document.querySelector('.header .nav');
+if(menuBtn&&navEl){menuBtn.addEventListener('click',()=>navEl.classList.toggle('open'));}
+
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if(!isOpen) item.classList.add('open');
+  });
+});
+
+document.querySelectorAll('.faq-nav-item').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.faq-nav-item').forEach(b => b.classList.remove('on'));
+    btn.classList.add('on');
+    const cat = btn.dataset.cat;
+    const el = document.querySelector('.faq-cat[data-cat="'+cat+'"]');
+    if(el){ const y = el.getBoundingClientRect().top + window.scrollY - 130; window.scrollTo({top:y,behavior:'smooth'}); }
+  });
+});
+
+const cats = document.querySelectorAll('.faq-cat');
+const navItems = document.querySelectorAll('.faq-nav-item');
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting){
+      const cat = e.target.dataset.cat;
+      navItems.forEach(n => n.classList.toggle('on', n.dataset.cat === cat));
+    }
+  });
+},{rootMargin:'-30% 0px -60% 0px'});
+cats.forEach(c => io.observe(c));
+</script>
+</body>
+</html>
