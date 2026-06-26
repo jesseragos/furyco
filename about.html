@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About | Fury Co. Athletics</title>
+<meta name="description" content="Fury Co. Athletics is an elite performance training and custom gym build-out company in Houston, TX. Meet the team and our approach.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+<link rel="stylesheet" href="styles.css">
+<style>
+.about-hero{position:relative;min-height:72svh;display:flex;flex-direction:column;justify-content:flex-end;padding-top:120px;overflow:hidden;isolation:isolate}
+.about-hero-bg{position:absolute;inset:0;z-index:-1}
+.about-hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 28%;filter:var(--img-filter)}
+.about-hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,var(--ink) 0%,rgba(8,8,8,.45) 55%,rgba(8,8,8,.15) 100%)}
+.about-hero-inner{padding:clamp(40px,6vw,80px) 0;position:relative;z-index:1}
+.about-hero h1{font-family:var(--f-disp);font-weight:400;text-transform:uppercase;font-size:clamp(54px,10vw,130px);line-height:.88;letter-spacing:-.015em;margin:0 0 28px;color:var(--on-dark)}
+.about-hero h1 span{color:var(--acc)}
+.about-hero-sub{display:flex;align-items:flex-end;justify-content:space-between;gap:40px;flex-wrap:wrap}
+.about-hero-desc{font-size:clamp(16px,1.4vw,20px);color:var(--on-dark-mut);max-width:50ch;line-height:1.6}
+.about-chips{display:flex;gap:10px;flex-wrap:wrap;flex-shrink:0}
+.about-chip{font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:8px 14px;border-radius:100px;border:1px solid var(--line-2);color:var(--on-dark-mut)}
+
+.about-band{background:var(--acc);color:var(--acc-ink);padding:clamp(22px,3vw,34px) 0}
+.about-band-inner{display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap}
+.about-band-text{font-family:var(--f-disp);font-size:clamp(18px,2.4vw,28px);text-transform:uppercase;font-weight:400;letter-spacing:.01em}
+.about-band-stats{display:flex;gap:clamp(24px,4vw,56px);flex-wrap:wrap}
+.abs-item{display:flex;flex-direction:column;gap:2px}
+.abs-n{font-family:var(--f-disp);font-size:clamp(26px,3.4vw,42px);line-height:1;color:var(--acc-ink)}
+.abs-l{font-size:12px;font-weight:700;opacity:.65;text-transform:uppercase;letter-spacing:.08em}
+
+.about-story{background:var(--ink)}
+.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,90px);align-items:start}
+.story-img{border-radius:var(--r);overflow:hidden;aspect-ratio:3/4;position:sticky;top:120px}
+.story-img img{width:100%;height:100%;object-fit:cover;filter:grayscale(.15) contrast(1.05)}
+.story-content{display:flex;flex-direction:column;gap:32px;padding-top:8px}
+.story-content h2{font-family:var(--f-disp);font-weight:400;text-transform:uppercase;font-size:clamp(34px,5vw,66px);line-height:.9;margin:0;color:var(--on-dark)}
+.story-content h2 span{color:var(--acc)}
+.story-content p{font-size:15px;line-height:1.75;color:var(--on-dark-mut);margin:0}
+
+.about-offer{background:var(--ink-2)}
+.offer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:clamp(36px,4vw,52px)}
+.offer-card{background:var(--ink);border-radius:var(--r);padding:32px 28px;display:flex;flex-direction:column;gap:14px;transition:transform .4s var(--ease),background .4s}
+.offer-card:hover{transform:translateY(-5px);background:var(--ink-card)}
+.offer-ico{width:52px;height:52px;border-radius:14px;background:var(--acc-deep);color:var(--acc);display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0}
+.offer-card h3{font-family:var(--f-sans);font-weight:800;font-size:18px;margin:0;color:var(--on-dark)}
+.offer-card p{font-size:14.5px;line-height:1.6;color:var(--on-dark-mut);margin:0}
+
+.about-approach{background:var(--ink)}
+.approach-split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,90px);align-items:start}
+.approach-img{border-radius:var(--r);overflow:hidden;aspect-ratio:4/5;position:sticky;top:120px}
+.approach-img img{width:100%;height:100%;object-fit:cover;filter:grayscale(.2) contrast(1.05)}
+.approach-content{display:flex;flex-direction:column;gap:40px}
+.approach-block h3{font-family:var(--f-disp);font-weight:400;text-transform:uppercase;font-size:clamp(20px,2.2vw,28px);line-height:.95;color:var(--on-dark);margin:0 0 10px}
+.approach-block p{font-size:15px;line-height:1.7;color:var(--on-dark-mut);margin:0}
+.ab-num{font-family:var(--f-mono);font-size:11px;letter-spacing:.18em;color:var(--acc);text-transform:uppercase;margin-bottom:6px}
+
+.about-vd{background:var(--ink-2)}
+.vd-feature{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,90px);align-items:center}
+.vd-feat-img{border-radius:var(--r);overflow:hidden;aspect-ratio:16/9}
+.vd-feat-img img{width:100%;height:100%;object-fit:cover;filter:grayscale(.2) contrast(1.05);transition:transform .8s var(--ease)}
+.vd-feat-img:hover img{transform:scale(1.03)}
+.vd-feat-body{display:flex;flex-direction:column;gap:20px}
+.vd-feat-body h2{font-family:var(--f-disp);font-weight:400;text-transform:uppercase;font-size:clamp(32px,4.4vw,58px);line-height:.9;margin:0;color:var(--on-dark)}
+.vd-feat-body h2 span{color:var(--acc)}
+.vd-feat-body p{font-size:15px;line-height:1.7;color:var(--on-dark-mut);margin:0}
+.vd-feat-tags{display:flex;flex-wrap:wrap;gap:8px}
+.vd-feat-tags span{font-size:12px;font-weight:600;color:var(--on-dark-mut);background:var(--ink);padding:6px 14px;border-radius:100px}
+
+.about-gallery{background:var(--ink)}
+.ag-grid{columns:3;column-gap:14px;margin-top:clamp(32px,4vw,52px)}
+.ag-item{break-inside:avoid;margin-bottom:14px;border-radius:var(--r-sm);overflow:hidden;display:block}
+.ag-item img{width:100%;height:auto;display:block;object-fit:cover;filter:grayscale(.35) contrast(1.05);transition:transform .8s var(--ease),filter .6s}
+.ag-item:hover img{transform:scale(1.04);filter:grayscale(0) contrast(1.05)}
+
+.about-cta{background:var(--ink-2);text-align:center;padding:clamp(60px,8vw,100px) 0}
+.about-cta h2{font-family:var(--f-disp);font-weight:400;text-transform:uppercase;font-size:clamp(36px,6vw,80px);line-height:.9;margin:0 0 22px;color:var(--on-dark)}
+.about-cta h2 span{color:var(--acc)}
+.about-cta p{color:var(--on-dark-mut);font-size:17px;max-width:44ch;margin:0 auto 36px;line-height:1.6}
+.about-cta-actions{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap}
+
+@media(max-width:960px){
+  .story-grid,.approach-split{grid-template-columns:1fr}
+  .story-img,.approach-img{position:static;aspect-ratio:16/9}
+  .offer-grid{grid-template-columns:repeat(2,1fr)}
+  .vd-feature{grid-template-columns:1fr}
+  .ag-grid{columns:2}
+}
+@media(max-width:680px){
+  .offer-grid{grid-template-columns:1fr}
+  .about-band-inner,.about-hero-sub{flex-direction:column;align-items:flex-start}
+  .ag-grid{columns:1}
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="wrap header-inner">
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="about.html" class="active">About</a>
+      <a href="faq.html">FAQ</a>
+      <a href="location.html">Location</a>
+    </nav>
+    <a href="index.html" class="brand" aria-label="Fury Co. Athletics"><img src="https://furycompany.com/cdn/shop/files/Logos_Transparent-73.png?v=1722801560&width=340" alt="Fury Co. Athletics"></a>
+    <div class="header-cta">
+      <a href="tel:+17135550192" class="login-link"><i class="ph-bold ph-phone"></i><span>(713) 555-0192</span></a>
+      <a href="book-classes.html" class="btn btn-primary btn-sm"><span>Book Classes</span> <i class="ph-bold ph-calendar-check"></i></a>
+      <button class="menu-btn" aria-label="Menu"><i class="ph-bold ph-list"></i></button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="about-hero" id="top">
+  <div class="about-hero-bg"><img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1400&q=85" alt="Fury Co. Athletics training floor"></div>
+  <div class="wrap about-hero-inner">
+    <h1>About<br><span>Fury Co.</span></h1>
+    <div class="about-hero-sub">
+      <p class="about-hero-desc">Fury Co. Athletics is an elite performance training and custom gym build-out company in Houston, Texas. We design training environments and coaching programs that produce real, measurable results — for first-timers and pro athletes alike.</p>
+      <div class="about-chips">
+        <span class="about-chip">Houston, TX</span>
+        <span class="about-chip">Est. 2018</span>
+        <span class="about-chip">Certified Coaches</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAND -->
+<div class="about-band">
+  <div class="wrap about-band-inner">
+    <div class="about-band-text">Work Hard. Never Give Up.</div>
+    <div class="about-band-stats">
+      <div class="abs-item"><span class="abs-n">8<span style="font-size:.55em;opacity:.7">yr</span></span><span class="abs-l">In the Game</span></div>
+      <div class="abs-item"><span class="abs-n">500<span style="font-size:.55em;opacity:.7">+</span></span><span class="abs-l">Athletes Trained</span></div>
+      <div class="abs-item"><span class="abs-n">12<span style="font-size:.55em;opacity:.7">+</span></span><span class="abs-l">Sports Covered</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- STORY -->
+<section class="about-story sec-pad" id="story">
+  <div class="wrap">
+    <div class="story-grid">
+      <div class="story-img reveal">
+        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=700&q=85" alt="Fury Co. coaching in action">
+      </div>
+      <div class="story-content">
+        <div class="section-head reveal" style="margin:0">
+          <span class="kicker">Our Story</span>
+          <h2>More Than<br><span>a Gym</span></h2>
+        </div>
+        <div class="cred-row reveal" style="margin:0">
+          <span class="cred"><i class="ph-fill ph-barbell"></i> Certified S&amp;C</span>
+          <span class="cred"><i class="ph-fill ph-medal"></i> 500+ Athletes</span>
+          <span class="cred"><i class="ph-fill ph-lightning"></i> 12 Sports</span>
+          <span class="cred"><i class="ph-fill ph-wrench"></i> Custom Builds</span>
+        </div>
+        <p class="reveal">Fury Co. Athletics started in 2018 with a simple belief: athletes deserve coaching built around them, not a one-size-fits-all routine. We design periodized programs that target the specific demands of your sport and your athlete profile — and we hold you to the standard that gets results.</p>
+        <p class="reveal">Today the Fury team coaches more than 500 athletes across 12 sports, from youth development through collegiate and professional performance. We also design and install custom gym build-outs — home gyms to full commercial facilities — bringing the same precision to the space as we do to the training.</p>
+        <div class="reveal">
+          <a href="book-classes.html" class="btn btn-primary"><span>Train With Us</span> <i class="ph-bold ph-arrow-up-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE DO -->
+<section class="about-offer sec-pad" id="services">
+  <div class="wrap">
+    <div class="section-head sh-split reveal">
+      <span class="kicker">What We Do</span>
+      <h2 class="section-title">Train. Build.<br><span class="acc">Win.</span></h2>
+      <p class="lead">From elite performance coaching to full facility design, every Fury Co. service is built and delivered by certified professionals.</p>
+    </div>
+    <div class="offer-grid">
+      <div class="offer-card reveal"><div class="offer-ico"><i class="ph-bold ph-lightning"></i></div><h3>Speed &amp; Agility</h3><p>Track-proven mechanics for faster times and sharper cuts — the first step that wins games.</p></div>
+      <div class="offer-card reveal" data-d="1"><div class="offer-ico"><i class="ph-bold ph-barbell"></i></div><h3>Strength &amp; Conditioning</h3><p>Periodized programming that builds a strong, explosive, resilient athlete's body.</p></div>
+      <div class="offer-card reveal" data-d="2"><div class="offer-ico"><i class="ph-bold ph-users-three"></i></div><h3>Youth Development</h3><p>Ages 8–17. Habits, technique and confidence built from day one in a supportive setting.</p></div>
+      <div class="offer-card reveal"><div class="offer-ico"><i class="ph-bold ph-user-focus"></i></div><h3>1-on-1 Coaching</h3><p>Private sessions built entirely around your goals, schedule and competition calendar.</p></div>
+      <div class="offer-card reveal" data-d="1"><div class="offer-ico"><i class="ph-bold ph-users-four"></i></div><h3>Small Group Training</h3><p>High-energy team sessions with the same Fury standard of coaching for every athlete.</p></div>
+      <div class="offer-card reveal" data-d="2"><div class="offer-ico"><i class="ph-bold ph-wrench"></i></div><h3>Custom Gym Build-Outs</h3><p>Design, equipment sourcing and turnkey installation — home gym to commercial facility.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- APPROACH -->
+<section class="about-approach sec-pad" id="approach">
+  <div class="wrap">
+    <div class="approach-split">
+      <div class="approach-img reveal">
+        <img src="https://images.unsplash.com/photo-1574680096145-d05b474e2155?w=700&q=85" alt="Fury Co. coaching philosophy">
+      </div>
+      <div class="approach-content">
+        <div class="section-head reveal" style="margin:0">
+          <span class="kicker">Our Philosophy</span>
+          <h2 class="section-title">Built on<br><span class="acc">Results.</span></h2>
+        </div>
+        <div class="approach-block reveal"><div class="ab-num">01</div><h3>Athlete-First Programming</h3><p>Every program is periodized and built by certified coaches around your sport, level and goals — never a cookie-cutter routine.</p></div>
+        <div class="approach-block reveal"><div class="ab-num">02</div><h3>Measurable Progress</h3><p>We track the numbers that matter — speed, strength, output — so improvement is visible, not just felt. What gets measured gets better.</p></div>
+        <div class="approach-block reveal"><div class="ab-num">03</div><h3>Leave No One Behind</h3><p>A team culture that pushes everyone forward, from first-timers to elite competitors. We win together, and nobody gets to settle.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CUSTOM BUILD FEATURE -->
+<section class="about-vd sec-pad" id="build">
+  <div class="wrap">
+    <div class="vd-feature">
+      <div class="vd-feat-img reveal"><img src="https://images.unsplash.com/photo-1567013127542-490d757e51fc?w=900&q=80" alt="Custom Fury Co. gym build-out"></div>
+      <div class="vd-feat-body reveal" data-d="1">
+        <span class="kicker">Facility Design</span>
+        <h2>Custom Gym<br><span>Build-Outs</span></h2>
+        <p>From a single-car garage to a full commercial performance floor, we handle design, equipment sourcing and installation end to end — built to your training demands and your budget. The same precision we bring to coaching, applied to the space itself.</p>
+        <div class="vd-feat-tags">
+          <span>Space Planning</span>
+          <span>Equipment Sourcing</span>
+          <span>Flooring &amp; Rigging</span>
+          <span>Turnkey Install</span>
+          <span>Home &amp; Commercial</span>
+        </div>
+        <div><a href="location.html#contact" class="btn btn-primary"><span>Start Your Build</span> <i class="ph-bold ph-arrow-up-right"></i></a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="about-gallery sec-pad" id="gallery">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="kicker">In the Field</span>
+      <h2 class="section-title">The Work</h2>
+    </div>
+    <div class="ag-grid">
+      <div class="ag-item reveal"><img src="https://images.unsplash.com/photo-1556817411-31ae72fa3ea0?w=760&q=85" alt="Strength training"></div>
+      <div class="ag-item reveal"><img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=760&q=85" alt="Group training session"></div>
+      <div class="ag-item reveal"><img src="https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?w=760&q=85" alt="Explosive power training"></div>
+      <div class="ag-item reveal"><img src="https://images.unsplash.com/photo-1567013127542-490d757e51fc?w=760&q=85" alt="Custom gym build"></div>
+      <div class="ag-item reveal"><img src="https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?w=760&q=85" alt="Speed and agility"></div>
+      <div class="ag-item reveal"><img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=760&q=85" alt="Field drills"></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="about-cta">
+  <div class="wrap">
+    <h2>Ready to<br><span>Transform?</span></h2>
+    <p>Book a free session, join a program, or inquire about a custom build. Your first session is on us — no commitment required.</p>
+    <div class="about-cta-actions">
+      <a href="book-classes.html" class="btn btn-primary"><span>Book a Free Session</span> <i class="ph-bold ph-calendar-check"></i></a>
+      <a href="mailto:info@furycoathletics.com" class="btn btn-ghost"><span>info@furycoathletics.com</span> <i class="ph-bold ph-envelope"></i></a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="https://furycompany.com/cdn/shop/files/Logos_Transparent-73.png?v=1722801560&width=340" alt="Fury Co. Athletics">
+        <p>Work Hard. Never Give Up. Leave No One Behind. Elite performance training and custom gym build-outs in Houston, Texas.</p>
+      </div>
+      <div class="footer-col"><h5>Training</h5><a href="index.html#programs">Speed &amp; Agility</a><a href="index.html#programs">Strength &amp; Conditioning</a><a href="index.html#programs">Youth Development</a><a href="about.html#build">Custom Gym Build-Out</a></div>
+      <div class="footer-col"><h5>Company</h5><a href="about.html">About</a><a href="faq.html">FAQ</a><a href="location.html">Location</a><a href="book-classes.html">Book Classes</a></div>
+      <div class="footer-col"><h5>Connect</h5><a href="#">Instagram</a><a href="mailto:info@furycoathletics.com">Email Us</a><a href="location.html#contact">Visit / Rentals</a><a href="index.html#store">Shop Gear</a></div>
+    </div>
+    <div class="footer-bot">
+      <p>&copy; 2026 Fury Co. Athletics &middot; 1234 Champions Drive, Houston, TX 77002</p>
+      <div class="fb-links"><a href="#top">Back to top &uarr;</a></div>
+    </div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
